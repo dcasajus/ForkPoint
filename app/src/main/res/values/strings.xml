@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">ForkPoint</string>
+    <string-array name="Locales">
+        <item>Local1</item>
+        <item>Local2</item>
+        <item>Local3</item>
+        <item>Local4</item>
+        <item>Local5</item>
+        <item>Local6</item>
+        <item>Local7</item>
+        <item>Local8</item>
+        <item>Local9</item>
+    </string-array>
+    <array name="icons">
+        <item>@drawable/local1</item>
+        <item>@drawable/local2</item>
+        <item>@drawable/local3</item>
+        <item>@drawable/local4</item>
+        <item>@drawable/local1</item>
+        <item>@drawable/local1</item>
+    </array>
+    <string-array name="carrers">
+        <item>Carrer1</item>
+        <item>Carrer2</item>
+        <item>Carrer3</item>
+        <item>Carrer4</item>
+        <item>Carrer5</item>
+        <item>Carrer6</item>
+        <item>Carrer7</item>
+        <item>Carrer8</item>
+        <item>Carrer9</item>
+    </string-array>
+    <string-array name="preulocal">
+        <item>12-18 E</item>
+        <item>12-16 E</item>
+        <item>8-13 E</item>
+        <item>18-30 E</item>
+        <item>30-50 E</item>
+        <item>8-12 E</item>
+        <item>16 E</item>
+        <item>16-19 E</item>
+        <item>18-20 E</item>
+    </string-array>
+    <string-array name="horari">
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+        <item>8:00-23:00h</item>
+    </string-array>
+    <string name="descripcio">"En aquest local podra menjar tot tipus de plats a una alta calitat, producte fresc... ASdadasdasdasdadadasd
+        asdsadadasdsdadadasdasd"</string>
+    <!--Login-->
+    <string name="perfil_text">Perfil</string>
+    <string name="perfil_text_inici_register">Resgistrat a ForkPoint.
+        Recorda que podràs rebre notificacions de les ofertes dels teus locals preferits.</string>
+    <string name="perfil_text_inici">Loguejat a ForkPoint introdueix el teu nom dusuari i la teva password.
+        Recorda que podràs rebre notificacions de les ofertes dels teus locals preferits.</string>
+     <string name="perfil_text_register">No estas registrat? Sol tardaràs dos minuts!.</string>
+    <string name="perfil_user">User</string>
+    <string name="perfil_password">Password</string>
+    <string name="perfil_edat">Edat</string>
+    <string name="perfil_ciutat">Ciutat</string>
+    <string name="perfil_cp">Codi Postal</string>
+    <string name="perfil_register">Registrat</string>
+
+    <string name="partymeter_text">ForkMeter</string>
+    <string name="favoritos_text">Favorits</string>
+    <string name="ajustes_text">Opcions</string>
+    <string name="salir_text">Sortir</string>
+
+    <string name="usuario">User</string>
+    <string name="navheader">ForkPoint</string>
+
+
+
+    <string name="otras_opciones">Altres</string>
+
+
+</resources>

@@ -1,0 +1,169 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/button_material_dark" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical">
+
+        <EditText
+            android:layout_width="207dp"
+            android:layout_height="40dp"
+            android:id="@+id/user"
+            android:background="#FFF"
+            android:textColor="#000"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="168dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_toEndOf="@+id/textView3" />
+
+        <EditText
+            android:layout_width="207dp"
+            android:layout_height="40dp"
+            android:id="@+id/password"
+            android:background="#FFF"
+            android:textColor="#000"
+            android:layout_below="@+id/textView3"
+            android:layout_alignLeft="@+id/user"
+            android:layout_alignStart="@+id/user"
+            android:password="true" />
+
+        <EditText
+            android:layout_width="207dp"
+            android:layout_height="40dp"
+            android:id="@+id/edat"
+            android:background="#FFF"
+            android:textColor="#000"
+            android:layout_below="@+id/textView4"
+            android:layout_toRightOf="@+id/textView4"
+            android:layout_toEndOf="@+id/textView4" />
+
+        <EditText
+            android:layout_width="207dp"
+            android:layout_height="40dp"
+            android:id="@+id/ciutat"
+            android:background="#FFF"
+            android:textColor="#000"
+            android:layout_below="@+id/edat"
+            android:layout_alignLeft="@+id/edat"
+            android:layout_alignStart="@+id/edat"
+            android:layout_marginTop="15dp" />
+
+        <EditText
+            android:layout_width="207dp"
+            android:layout_height="40dp"
+            android:id="@+id/cp"
+            android:background="#FFF"
+            android:textColor="#000"
+            android:layout_below="@+id/ciutat"
+            android:layout_alignLeft="@+id/ciutat"
+            android:layout_alignStart="@+id/ciutat"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_text_inici_register"
+            android:id="@+id/textView1"
+            android:layout_marginTop="39dp"
+            android:textSize="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="67dp"
+            android:layout_height="56dp"
+            android:text="@string/perfil_user"
+            android:id="@+id/textView3"
+            android:textSize="18dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_alignTop="@+id/user"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="67dp"
+            android:layout_height="56dp"
+            android:text="@string/perfil_password"
+            android:layout_gravity="left|top"
+            android:id="@+id/textView4"
+            android:textSize="18dp"
+            android:layout_alignTop="@+id/password"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_toLeftOf="@+id/password"
+            android:layout_toStartOf="@+id/password" />
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_edat"
+            android:id="@+id/edat_text"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/textView4"
+            android:layout_alignRight="@+id/textView4"
+            android:layout_alignEnd="@+id/textView4" />
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_ciutat"
+            android:id="@+id/ciutat_text"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_alignLeft="@+id/edat_text"
+            android:layout_alignStart="@+id/edat_text"
+            android:layout_alignTop="@+id/ciutat"
+            android:layout_toLeftOf="@+id/ciutat"
+            android:layout_toStartOf="@+id/ciutat" />
+
+        <TextView
+            android:textColor="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_cp"
+            android:id="@+id/cp_text"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/cp"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignStart="@+id/textView1"
+            android:layout_toLeftOf="@+id/cp"
+            android:layout_toStartOf="@+id/cp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Registrat"
+            android:onClick="register"
+            android:clickable="true"
+            android:id="@+id/register"
+            android:layout_gravity="center_horizontal|bottom"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

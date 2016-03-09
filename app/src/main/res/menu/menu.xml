@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_perfil"
+            android:icon="@drawable/perfilico"
+            android:title="@string/perfil_text"/>
+        <item
+            android:id="@+id/menu_partymeter"
+            android:icon="@drawable/partymetter"
+            android:title="@string/partymeter_text"/>
+        <item
+            android:id="@+id/menu_favoritos"
+            android:icon="@drawable/favoritosico"
+            android:title="@string/favoritos_text"/>
+    </group>
+
+    <item
+        android:id="@+id/navigation_subheader"
+        android:title="@string/otras_opciones">
+        <menu>
+            <item
+                android:id="@+id/menu_ajustes"
+                android:icon="@drawable/ajustesico"
+                android:title="@string/ajustes_text"/>
+            <item
+                android:id="@+id/menu_salir"
+                android:icon="@drawable/exit"
+                android:title="@string/salir_text"/>
+        </menu>
+    </item>
+</menu>
