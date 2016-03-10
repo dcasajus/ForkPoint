@@ -3,9 +3,12 @@ package com.pp.dcasajus.forkpoint.ForkMeter;
 /**
  * Created by denisplata on 17/02/2016.
  */
+
+import java.text.DecimalFormat;
 import java.util.List;
 import android.app.Activity;
 import android.content.Context;
+import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pp.dcasajus.forkpoint.R;
+import com.pp.dcasajus.forkpoint.Serveis.LocationSave;
 
 public class CustomAdapter extends BaseAdapter {
 
@@ -57,6 +61,8 @@ public class CustomAdapter extends BaseAdapter {
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
         TextView txtCarrer = (TextView) convertView.findViewById(R.id.carrer);
         TextView txtPreu = (TextView) convertView.findViewById(R.id.preulocal);
+        TextView txtdistancia = (TextView) convertView.findViewById(R.id.localitzacio);
+
 
         RowItem row_pos = rowItem.get(position);
         // setting the image resource and title
@@ -64,6 +70,24 @@ public class CustomAdapter extends BaseAdapter {
         txtTitle.setText(row_pos.getTitle());
         txtCarrer.setText(row_pos.getCarrer());
         txtPreu.setText(row_pos.getEdatmin());
+
+        double latitude= 41.6175899;
+        double longitude= 0.6200145999999904;
+
+        float distance=0;
+        Location crntLocation=new Location("crntlocation");
+        crntLocation.setLatitude(row_pos.getLat());
+        crntLocation.setLongitude(row_pos.getLon());
+
+        Location newLocation=new Location("newlocation");
+        newLocation.setLatitude(latitude);
+        newLocation.setLongitude(longitude);
+        //float distance = crntLocation.distanceTo(newLocation);  in meters
+        distance =crntLocation.distanceTo(newLocation) / 1000; // in km
+        DecimalFormat df = new DecimalFormat("0.00");
+        String text = df.format(distance);
+        txtdistancia.setText(text+" km");
+
 
         return convertView;
 

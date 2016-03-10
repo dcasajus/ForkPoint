@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.pp.dcasajus.forkpoint.LocalDetall.Local;
 import com.pp.dcasajus.forkpoint.LocalDetall.LocalDetall;
 import com.pp.dcasajus.forkpoint.R;
+import com.pp.dcasajus.forkpoint.Serveis.LocationSave;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,8 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     String[] edatmin;
     String[] horari;
     String descripcio;
-    Double[] lat;
-    Double[] lon;
+    double lat;
+    double lon;
 
     CustomAdapter adapter;
     private List<RowItem> rowItems;
@@ -52,6 +53,13 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
 
         super.onActivityCreated(savedInstanceState);
 
+        Bundle args = getArguments();
+        if (args != null) {
+             lat = args.getDouble("latitud");
+            lon = args.getDouble("longitud");
+        }
+        System.out.println(lat);
+        System.out.println(lon);
         titles = getResources().getStringArray(R.array.Locales);
         Icons = getResources().obtainTypedArray(R.array.icons);
         carrers = getResources().getStringArray(R.array.carrers);
@@ -59,12 +67,11 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
         horari = getResources().getStringArray(R.array.horari);
         descripcio = getResources().getString(R.string.descripcio);
 
-
         rowItems = new ArrayList<RowItem>();
 
         for (int i = 0; i < titles.length; i++) {
             RowItem items = new RowItem(titles[i], Icons.getResourceId(
-                    i, -1), carrers[i],edatmin[i]);
+                    i, -1), carrers[i],edatmin[i],lat,lon);
 
             rowItems.add(items);
         }

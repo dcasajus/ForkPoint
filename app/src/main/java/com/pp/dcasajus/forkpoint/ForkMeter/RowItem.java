@@ -9,13 +9,16 @@ public class RowItem {
     private int icon;
     private String carrer;
     private String edatmin;
+    private Double lat;
+    private Double lon;
 
-    public RowItem(String title, int icon, String carrer, String edatmin) {
-        this.title = title;
+    public RowItem(String title, int icon, String carrer, String edatmin, Double lat,Double lon) {
+        this.lat = lat;
         this.icon = icon;
-        this.carrer=carrer;
+        this.carrer = carrer;
         this.edatmin = edatmin;
-
+        this.title = title;
+        this.lon = lon;
     }
 
     public String getTitle() {
@@ -41,5 +44,13 @@ public class RowItem {
     public String getEdatmin() { return edatmin; }
 
     public void setEdatmin(String edatmin) {  this.edatmin = edatmin;  }
+
+    public Double getLat() { return lat;  }
+
+    public void setLat(Double lat) {   this.lat = lat; }
+
+    public Double getLon() {   return lon;  }
+
+    public void setLon(Double lon) {    this.lon = lon;   }
 }
 

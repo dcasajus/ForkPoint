@@ -33,6 +33,25 @@
         android:textColor="#000"
         android:textSize="20sp" />
     <TextView
+        android:id="@+id/dist"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/icon"
+        android:gravity="center_vertical"
+        android:text="Distancia: "
+        android:textColor="#03b406"
+        android:textSize="12dp" />
+    <TextView
+        android:id="@+id/localitzacio"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/dist"
+        android:gravity="center_vertical"
+        android:textColor="#000"
+        android:textSize="12dp" />
+    <TextView
         android:id="@+id/preulocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,6 +70,6 @@
         android:layout_alignParentRight="true"
         android:textColor="#03b406"
         android:textSize="12dp"
-        android:layout_marginRight="70dp" />
+        android:layout_marginRight="40dp" />
 
 </RelativeLayout>
