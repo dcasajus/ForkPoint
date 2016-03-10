@@ -58,8 +58,6 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
              lat = args.getDouble("latitud");
             lon = args.getDouble("longitud");
         }
-        System.out.println(lat);
-        System.out.println(lon);
         titles = getResources().getStringArray(R.array.Locales);
         Icons = getResources().obtainTypedArray(R.array.icons);
         carrers = getResources().getStringArray(R.array.carrers);
