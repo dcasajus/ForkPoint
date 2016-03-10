@@ -29,10 +29,6 @@ public class LocalDetall extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detall_local);
         local= (Local) getIntent().getParcelableExtra("localSelected");
-        System.out.println(local);
-       /* Bundle args = new Bundle();
-        args.putInt("index", index);
-        f.setArguments(args);*/
 
         fav= new FavoritosSQLite(this, "Locals", null, 1);
 
@@ -113,10 +109,7 @@ public class LocalDetall extends AppCompatActivity {
                 public void onClick(View v) {
 
                     SQLiteDatabase db = fav.getWritableDatabase();
-
                     Cursor cursor = db.rawQuery("SELECT * FROM Locals", null);
-                    System.out.println("Local FAVORITTTTTTTTTTTTTTTTTTT");
-                    System.out.println(local.getIsFavorite());
                     if (local.getIsFavorite() == 0){
                         imgFav.setImageResource(R.drawable.favoritosicoadd);
                         int codigo = 1;

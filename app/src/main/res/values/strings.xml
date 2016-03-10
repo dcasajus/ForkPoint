@@ -52,8 +52,8 @@
         <item>8:00-23:00h</item>
         <item>8:00-23:00h</item>
     </string-array>
-    <string name="descripcio">"En aquest local podra menjar tot tipus de plats a una alta calitat, producte fresc... ASdadasdasdasdadadasd
-        asdsadadasdsdadadasdasd"</string>
+    <string name="descripcio">"En aquest local podra menjar tot tipus de plats a una alta calitat, producte fresc...està pensat per albergar petites celebracions o actes d'empresa ,
+        amb una capacitat de fins a vuitanta persones. A més disposa de projector i pantalla el que possibilita la seva utilització per a presentacions i esdeveniments similars."</string>
     <!--Login-->
     <string name="perfil_text">Perfil</string>
     <string name="perfil_text_inici_register">Resgistrat a ForkPoint.
