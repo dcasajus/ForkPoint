@@ -52,10 +52,10 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
-
+        boolean notLocation = false;
         Bundle args = getArguments();
         if (args != null) {
-             lat = args.getDouble("latitud");
+            lat = args.getDouble("latitud");
             lon = args.getDouble("longitud");
         }
         titles = getResources().getStringArray(R.array.Locales);

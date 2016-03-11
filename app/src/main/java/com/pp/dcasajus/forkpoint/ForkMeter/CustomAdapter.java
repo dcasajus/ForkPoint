@@ -8,6 +8,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,6 +63,8 @@ public class CustomAdapter extends BaseAdapter {
         TextView txtCarrer = (TextView) convertView.findViewById(R.id.carrer);
         TextView txtPreu = (TextView) convertView.findViewById(R.id.preulocal);
         TextView txtdistancia = (TextView) convertView.findViewById(R.id.localitzacio);
+        TextView txtlabeldistancia = (TextView) convertView.findViewById(R.id.dist);
+
 
 
         RowItem row_pos = rowItem.get(position);
@@ -79,15 +82,19 @@ public class CustomAdapter extends BaseAdapter {
         crntLocation.setLatitude(row_pos.getLat());
         crntLocation.setLongitude(row_pos.getLon());
 
-        Location newLocation=new Location("newlocation");
-        newLocation.setLatitude(latitude);
-        newLocation.setLongitude(longitude);
-        //float distance = crntLocation.distanceTo(newLocation);  in meters
-        distance =crntLocation.distanceTo(newLocation) / 1000; // in km
-        DecimalFormat df = new DecimalFormat("0.00");
-        String text = df.format(distance);
-        txtdistancia.setText(text+" km");
-
+        if(row_pos.getLat()==0.0){
+            txtlabeldistancia.setText("Ubicació no disponible");
+            txtlabeldistancia.setTextColor(Color.parseColor("#B40404"));
+        } else {
+            Location newLocation = new Location("newlocation");
+            newLocation.setLatitude(latitude);
+            newLocation.setLongitude(longitude);
+            //float distance = crntLocation.distanceTo(newLocation);  in meters
+            distance = crntLocation.distanceTo(newLocation) / 1000; // in km
+            DecimalFormat df = new DecimalFormat("0.00");
+            String text = df.format(distance);
+            txtdistancia.setText(text + " km");
+        }
 
         return convertView;
 

@@ -70,14 +70,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (mGoogleApiClient == null) {
+     /*   if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(LocationServices.API)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
-        }
+        }*/
 
         if (checkPlayServices()) {
             // Building the GoogleApi client
@@ -122,12 +121,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                                 break;
                             case R.id.menu_partymeter:
                                 fragment = new ForkMeterFragment();
-                              /*  if(locationSave.getLat()!=null) {*/
-                                    final Bundle args = new Bundle();
-                                    args.putDouble("latitud", locationSave.getLat());
-                                    args.putDouble("longitud", locationSave.getLon());
-                                    fragment.setArguments(args);
-                                //}
+                                final Bundle args = new Bundle();
+                                args.putDouble("latitud", locationSave.getLat());
+                                args.putDouble("longitud", locationSave.getLon());
+                                fragment.setArguments(args);
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_favoritos:
@@ -165,12 +162,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onStart();
         if (mGoogleApiClient != null) {
 
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
+          /*  mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(Drive.API)
                     .addScope(Drive.SCOPE_FILE)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
-                    .build();
+                    .build();*/
             mGoogleApiClient.connect();
         }
     }
@@ -215,14 +212,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         if (mLastLocation != null) {
             double latitude = mLastLocation.getLatitude();
             double longitude = mLastLocation.getLongitude();
-            locationSave= new LocationSave(latitude,longitude);
-            Toast.makeText(getApplicationContext(),
-                    "latitude "+latitude + " longitude " + longitude , Toast.LENGTH_LONG)
-                    .show();
+
+                locationSave = new LocationSave(latitude, longitude);
+                locationSave.setLat(latitude);
+                locationSave.setLon(longitude);
+                Toast.makeText(getApplicationContext(),
+                        "latitude " + latitude + " longitude " + longitude, Toast.LENGTH_LONG)
+                        .show();
+
         } else {
             Toast.makeText(getApplicationContext(),
                     "No puc obternir la teva localització.Siusplau activa el servei.", Toast.LENGTH_LONG)
                     .show();
+                     locationSave = new LocationSave(0.0, 0.0);
            }
     }
 
@@ -312,12 +314,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onConnectionSuspended(int arg0) {
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+       /* mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Drive.API)
                 .addScope(Drive.SCOPE_FILE)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
-                .build();
+                .build();*/
         mGoogleApiClient.connect();
     }
 
