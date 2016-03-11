@@ -28,7 +28,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     String[] titles;
     TypedArray Icons;
     String[] carrers;
-    String[] edatmin;
+    String[] preu;
     String[] horari;
     String descripcio;
     double lat;
@@ -61,7 +61,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
         titles = getResources().getStringArray(R.array.Locales);
         Icons = getResources().obtainTypedArray(R.array.icons);
         carrers = getResources().getStringArray(R.array.carrers);
-        edatmin = getResources().getStringArray(R.array.preulocal);
+        preu = getResources().getStringArray(R.array.preulocal);
         horari = getResources().getStringArray(R.array.horari);
         descripcio = getResources().getString(R.string.descripcio);
 
@@ -69,7 +69,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
 
         for (int i = 0; i < titles.length; i++) {
             RowItem items = new RowItem(titles[i], Icons.getResourceId(
-                    i, -1), carrers[i],edatmin[i],lat,lon);
+                    i, -1), carrers[i],preu[i],lat,lon);
 
             rowItems.add(items);
         }
@@ -87,7 +87,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
         Toast.makeText(getActivity(), titles[position], Toast.LENGTH_SHORT)
                 .show();
 
-        Local local = new Local(titles[position],carrers[position],edatmin[position],Icons.getResourceId(position, -1),0,horari[position],0,0,descripcio);
+        Local local = new Local(titles[position],carrers[position],preu[position],Icons.getResourceId(position, -1),0,horari[position],0,0,descripcio);
         Intent intent = new Intent(getActivity().getApplicationContext(), LocalDetall.class);
         intent.putExtra("localSelected", local);
         startActivity(intent);

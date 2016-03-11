@@ -8,15 +8,15 @@ public class RowItem {
     private String title;
     private int icon;
     private String carrer;
-    private String edatmin;
+    private String preu;
     private Double lat;
     private Double lon;
 
-    public RowItem(String title, int icon, String carrer, String edatmin, Double lat,Double lon) {
+    public RowItem(String title, int icon, String carrer, String preu, Double lat,Double lon) {
         this.lat = lat;
         this.icon = icon;
         this.carrer = carrer;
-        this.edatmin = edatmin;
+        this.preu = preu;
         this.title = title;
         this.lon = lon;
     }
@@ -41,9 +41,9 @@ public class RowItem {
 
     public void setCarrer(String carrer) { this.carrer = carrer;  }
 
-    public String getEdatmin() { return edatmin; }
+    public String getPreu() { return preu; }
 
-    public void setEdatmin(String edatmin) {  this.edatmin = edatmin;  }
+    public void setPreu(String preu) {  this.preu = preu;  }
 
     public Double getLat() { return lat;  }
 

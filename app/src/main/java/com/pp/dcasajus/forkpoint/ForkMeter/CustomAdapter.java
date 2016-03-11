@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.pp.dcasajus.forkpoint.R;
-import com.pp.dcasajus.forkpoint.Serveis.LocationSave;
 
 public class CustomAdapter extends BaseAdapter {
 
@@ -72,7 +71,8 @@ public class CustomAdapter extends BaseAdapter {
         imgIcon.setImageResource(row_pos.getIcon());
         txtTitle.setText(row_pos.getTitle());
         txtCarrer.setText(row_pos.getCarrer());
-        txtPreu.setText(row_pos.getEdatmin());
+        String euro = "\u20ac";
+        txtPreu.setText(row_pos.getPreu()+euro);
 
         double latitude= 41.6175899;
         double longitude= 0.6200145999999904;

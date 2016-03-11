@@ -31,15 +31,15 @@
         <item>Carrer9</item>
     </string-array>
     <string-array name="preulocal">
-        <item>12-18 E</item>
-        <item>12-16 E</item>
-        <item>8-13 E</item>
-        <item>18-30 E</item>
-        <item>30-50 E</item>
-        <item>8-12 E</item>
-        <item>16 E</item>
-        <item>16-19 E</item>
-        <item>18-20 E</item>
+        <item>12-18 </item>
+        <item>12-16 </item>
+        <item>8-13 </item>
+        <item>18-30 </item>
+        <item>30-50 </item>
+        <item>8-12 </item>
+        <item>16 </item>
+        <item>16-19 </item>
+        <item>18-20 </item>
     </string-array>
     <string-array name="horari">
         <item>8:00-23:00h</item>

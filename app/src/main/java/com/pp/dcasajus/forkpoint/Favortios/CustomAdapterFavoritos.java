@@ -62,7 +62,8 @@ public class CustomAdapterFavoritos  extends BaseAdapter {
         imgIcon.setImageResource(row_pos.getIcon());
         txtTitle.setText(row_pos.getTitle());
         txtCarrer.setText(row_pos.getCarrer());
-        txtPreu.setText(row_pos.getPreu());
+        String euro = "\u20ac";
+        txtPreu.setText(row_pos.getPreu()+euro);
 
         return convertView;
 
