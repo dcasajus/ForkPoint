@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/button_material_dark"
+    android:background="#FFF"
     android:weightSum="1">
 
     <CheckBox
@@ -13,7 +13,7 @@
         android:layout_weight="0.13"
         android:checked="false"
         android:textSize="20dp"
-        android:textColor="#FFF"
+        android:textColor="#000"
         android:paddingLeft="0dp"
         android:gravity="center_vertical"
         android:textAlignment="center"
@@ -27,7 +27,7 @@
         android:text="Guardar nom d&apos;usuari"
         android:layout_weight="0.13"
         android:checked="false"
-        android:textColor="#FFF"
+        android:textColor="#000"
         android:textSize="20dp"
         android:paddingLeft="0dp"
         android:gravity="center_vertical"
