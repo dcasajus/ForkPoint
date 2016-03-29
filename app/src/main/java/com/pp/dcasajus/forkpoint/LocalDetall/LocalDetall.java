@@ -40,7 +40,7 @@ public class LocalDetall extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
 
         SQLiteDatabase db = fav.getWritableDatabase();

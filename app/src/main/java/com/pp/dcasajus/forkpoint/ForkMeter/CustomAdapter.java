@@ -68,6 +68,7 @@ public class CustomAdapter extends BaseAdapter {
 
         RowItem row_pos = rowItem.get(position);
         // setting the image resource and title
+
         imgIcon.setImageResource(row_pos.getIcon());
         txtTitle.setText(row_pos.getTitle());
         txtCarrer.setText(row_pos.getCarrer());

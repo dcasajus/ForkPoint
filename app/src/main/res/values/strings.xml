@@ -18,6 +18,9 @@
         <item>@drawable/local4</item>
         <item>@drawable/local1</item>
         <item>@drawable/local1</item>
+        <item>@drawable/local1</item>
+        <item>@drawable/local1</item>
+        <item>@drawable/local1</item>
     </array>
     <string-array name="carrers">
         <item>Carrer1</item>
