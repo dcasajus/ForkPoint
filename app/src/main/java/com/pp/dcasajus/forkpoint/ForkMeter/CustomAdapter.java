@@ -74,6 +74,7 @@ public class CustomAdapter extends BaseAdapter {
         txtCarrer.setText(row_pos.getCarrer());
         String euro = "\u20ac";
         txtPreu.setText(row_pos.getPreu()+euro);
+        txtPreu.setTextColor(Color.parseColor("#03b406"));
 
         double latitude= 41.6175899;
         double longitude= 0.6200145999999904;
@@ -95,6 +96,7 @@ public class CustomAdapter extends BaseAdapter {
             DecimalFormat df = new DecimalFormat("0.00");
             String text = df.format(distance);
             txtdistancia.setText(text + " km");
+            txtdistancia.setTextColor(Color.parseColor("#03b406"));
         }
 
         return convertView;
