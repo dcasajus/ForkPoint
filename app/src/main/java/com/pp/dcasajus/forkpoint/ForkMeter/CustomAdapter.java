@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.location.Location;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,10 +24,15 @@ public class CustomAdapter extends BaseAdapter {
 
     Context context;
     List<RowItem> rowItem;
+    double lat;
+    double lon;
 
-    CustomAdapter(Context context, List<RowItem> rowItem) {
+    CustomAdapter(Context context, List<RowItem> rowItem, double lat, double lon) {
         this.context = context;
         this.rowItem = rowItem;
+        this.lat = lat;
+        this.lon = lon;
+
 
     }
 
@@ -69,6 +75,8 @@ public class CustomAdapter extends BaseAdapter {
         RowItem row_pos = rowItem.get(position);
         // setting the image resource and title
 
+       // System.out.println("LATITUD: "+ lat+" Longitud!:"+ lon);
+
         imgIcon.setImageResource(row_pos.getIcon());
         txtTitle.setText(row_pos.getTitle());
         txtCarrer.setText(row_pos.getCarrer());
@@ -84,7 +92,7 @@ public class CustomAdapter extends BaseAdapter {
         crntLocation.setLatitude(row_pos.getLat());
         crntLocation.setLongitude(row_pos.getLon());
 
-        if(row_pos.getLat()==0.0){
+        if(lat==0.0){
             txtlabeldistancia.setText("Ubicació no disponible");
             txtlabeldistancia.setTextColor(Color.parseColor("#B40404"));
         } else {

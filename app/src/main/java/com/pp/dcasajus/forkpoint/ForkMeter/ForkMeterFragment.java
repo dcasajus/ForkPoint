@@ -89,6 +89,8 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
                     map.put("local", taskBean.getLocal());
                     map.put("preu", taskBean.getPreu());
                     map.put("carrer", taskBean.getCarrer());
+                    System.out.println("LAT " + taskBean.getLat()+ "LOT "+taskBean.getLon() );
+
                     mylist.add(map);
 
                 }
@@ -111,7 +113,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
 
             System.out.println(result);
 
-            adapter = new CustomAdapter(getActivity(), rowItems);
+            adapter = new CustomAdapter(getActivity(), rowItems,lat,lon);
             setListAdapter(adapter);
         }
     }
@@ -128,7 +130,6 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         System.out.println("Position "+position);
-
         Local local = new Local(mylist.get(position).get("local"),mylist.get(position).get("carrer"),mylist.get(position).get("preu"),Icons.getResourceId(position, -1),0,mylist.get(position).get("horari"),0,0,mylist.get(position).get("descripcio"));
         Intent intent = new Intent(getActivity().getApplicationContext(), LocalDetall.class);
         intent.putExtra("localSelected", local);
