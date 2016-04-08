@@ -2,15 +2,25 @@ package com.pp.dcasajus.forkpoint.Presentation;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.pp.dcasajus.forkpoint.HomeActivity;
 import com.pp.dcasajus.forkpoint.R;
+import com.pp.dcasajus.forkpoint.Sender.QuickstartPreferences;
+import com.pp.dcasajus.forkpoint.Sender.RegistrationIntentService;
 
 /**
  * Created by denisplata on 08/02/2016.
@@ -18,6 +28,8 @@ import com.pp.dcasajus.forkpoint.R;
 public class PresentationActivity  extends Activity {
 
     private final int Duracio = 5000;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,10 @@ public class PresentationActivity  extends Activity {
                 finish();
             };
         }, Duracio);
+
+
+
+
     }
 
     private void AlertNoGps() {
@@ -56,6 +72,7 @@ public class PresentationActivity  extends Activity {
         alert = builder.create();
         alert.show();
     }
+
 
 
 }

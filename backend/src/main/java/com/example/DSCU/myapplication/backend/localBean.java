@@ -1,7 +1,7 @@
 package com.example.DSCU.myapplication.backend;
 
 /** The object model for the data we are sending through endpoints */
-public class LocalBean {
+class LocalBean {
     private  String local;
     private  String carrer;
     private String preu;
