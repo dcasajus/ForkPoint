@@ -39,13 +39,14 @@ public class MyEndpoint {
         DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
         Transaction txn = datastoreService.beginTransaction();
         try {
-            Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "todo.txt");
+            Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "localf");
             Entity localEntity = new Entity("LocalBean", localBean.getId(),localBeanParentKey);
             localEntity.setProperty("local", localBean.getLocal());
             localEntity.setProperty("descripcio", localBean.getDescripcio());
             localEntity.setProperty("carrer", localBean.getCarrer());
             localEntity.setProperty("horari", localBean.getHorari());
             localEntity.setProperty("preu", localBean.getPreu());
+            localEntity.setProperty("comentaris", localBean.getComentaris());
             //localEntity.setProperty("lat", localBean.getLat());
             //localEntity.setProperty("lon", localBean.getLon());
 
@@ -58,10 +59,26 @@ public class MyEndpoint {
         }
     }
 
+    @ApiMethod(name = "updateLocal2")
+    public void updateLocal(LocalBean localBean) {
+        DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+        Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "localf");
+        Query query = new Query(localBeanParentKey);
+        List<Entity> results = datastoreService.prepare(query).asList(FetchOptions.Builder.withDefaults());
+        Entity localEntity = new Entity("LocalBean", localBean.getId(),localBeanParentKey);
+        localEntity.setProperty("local", localBean.getLocal());
+        localEntity.setProperty("descripcio", localBean.getDescripcio());
+        localEntity.setProperty("carrer", localBean.getCarrer());
+        localEntity.setProperty("horari", localBean.getHorari());
+        localEntity.setProperty("preu", localBean.getPreu());
+        localEntity.setProperty("comentaris", localBean.getComentaris());
+        datastoreService.put(localEntity);
+    }
+
     @ApiMethod(name = "getLocal")
     public List<LocalBean> getLocal() {
         DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
-        Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "todo.txt");
+        Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "localf");
         Query query = new Query(localBeanParentKey);
         List<Entity> results = datastoreService.prepare(query).asList(FetchOptions.Builder.withDefaults());
         ArrayList<LocalBean> localBeans = new ArrayList<LocalBean>();
@@ -73,6 +90,7 @@ public class MyEndpoint {
             localBean.setCarrer((String) result.getProperty("carrer"));
             localBean.setHorari((String) result.getProperty("horari"));
             localBean.setPreu((String) result.getProperty("preu"));
+            localBean.setComentaris((List<String>) result.getProperty("comentaris"));
             //localBean.setLat((String) result.getProperty("lat"));
             //localBean.setLon(result.getProperty("lon"));
 
@@ -87,7 +105,7 @@ public class MyEndpoint {
         DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
         Transaction txn = datastoreService.beginTransaction();
         try {
-            Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "todo.txt");
+            Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "localf");
             Query query = new Query(localBeanParentKey);
             List<Entity> results = datastoreService.prepare(query).asList(FetchOptions.Builder.withDefaults());
             for (Entity result : results) {

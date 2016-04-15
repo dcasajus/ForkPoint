@@ -1,5 +1,7 @@
 package com.example.DSCU.myapplication.backend;
 
+import java.util.List;
+
 /** The object model for the data we are sending through endpoints */
 class LocalBean {
     private  String local;
@@ -12,6 +14,7 @@ class LocalBean {
     private double lon;
     private  String descripcio;
     private Long id;
+    private List<String> comentaris;
 
     private String myData;
 
@@ -89,4 +92,8 @@ class LocalBean {
     public void setDescripcio(String descripcio) {
         this.descripcio = descripcio;
     }
+
+    public List<String> getComentaris() {  return comentaris;  }
+
+    public void setComentaris(List<String> comentaris) {  this.comentaris = comentaris;   }
 }

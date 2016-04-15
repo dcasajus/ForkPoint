@@ -3,6 +3,8 @@ package com.pp.dcasajus.forkpoint.LocalDetall;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 /**
  * Created by denisplata on 18/02/2016.
  */
@@ -16,8 +18,11 @@ public class Local implements Parcelable {
     double lat;
     double lon;
     String descripcio;
+    String comentaris;
 
-    public Local(String local, String carrer, String preu, int icons, int isFavorite, String horari, double lat, double lon,String descripcio) {
+
+
+    public Local(String local, String carrer, String preu, int icons, int isFavorite, String horari, double lat, double lon,String descripcio,String comentaris) {
         this.local = local;
         this.carrer = carrer;
         this.preu = preu;
@@ -27,6 +32,7 @@ public class Local implements Parcelable {
         this.lat = lat;
         this.lon = lon;
         this.descripcio = descripcio;
+        this.comentaris = comentaris;
     }
 
     protected Local(Parcel in) {
@@ -119,6 +125,10 @@ public class Local implements Parcelable {
         this.descripcio = descripcio;
     }
 
+    public String getComentaris() {  return comentaris;    }
+
+    public void setComentaris(String comentaris) {   this.comentaris = comentaris;    }
+
     @Override
     public String toString() {
         return "Local{" +
@@ -130,6 +140,7 @@ public class Local implements Parcelable {
                 ", horari='" + horari + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
+                ", comentaris=" + comentaris+
                 '}';
     }
 
@@ -149,5 +160,6 @@ public class Local implements Parcelable {
         dest.writeDouble(lat);
         dest.writeDouble(lon);
         dest.writeString(descripcio);
+
     }
 }

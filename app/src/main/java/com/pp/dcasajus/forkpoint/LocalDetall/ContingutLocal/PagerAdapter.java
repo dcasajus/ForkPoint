@@ -35,6 +35,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return tab2;
             case 2:
                 Opinions tab3 = new Opinions();
+                Bundle bundle2 = new Bundle();
+                bundle2.putParcelable("local", local);
+                tab3.setArguments(bundle2);
                 return tab3;
             default:
                 return null;
