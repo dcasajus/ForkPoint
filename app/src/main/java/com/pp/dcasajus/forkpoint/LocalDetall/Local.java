@@ -3,12 +3,14 @@ package com.pp.dcasajus.forkpoint.LocalDetall;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by denisplata on 18/02/2016.
  */
 public class Local implements Parcelable {
+    long id;
     String local;
     String carrer;
     String preu;
@@ -18,11 +20,12 @@ public class Local implements Parcelable {
     double lat;
     double lon;
     String descripcio;
-    String comentaris;
+    List<String> comentaris;
 
 
 
-    public Local(String local, String carrer, String preu, int icons, int isFavorite, String horari, double lat, double lon,String descripcio,String comentaris) {
+    public Local(long id,String local, String carrer, String preu, int icons, int isFavorite, String horari, double lat, double lon,String descripcio, List<String> comentaris) {
+        this.id =id;
         this.local = local;
         this.carrer = carrer;
         this.preu = preu;
@@ -36,6 +39,7 @@ public class Local implements Parcelable {
     }
 
     protected Local(Parcel in) {
+        id = in.readLong();
         local = in.readString();
         carrer = in.readString();
         preu = in.readString();
@@ -45,6 +49,8 @@ public class Local implements Parcelable {
         lat = in.readDouble();
         lon = in.readDouble();
         descripcio = in.readString();
+        comentaris = in.createStringArrayList();
+
     }
 
     public static final Creator<Local> CREATOR = new Creator<Local>() {
@@ -58,6 +64,10 @@ public class Local implements Parcelable {
             return new Local[size];
         }
     };
+
+    public long getId() {  return id;  }
+
+    public void setId(long id) {    this.id = id;   }
 
     public String getLocal() { return local;  }
 
@@ -125,14 +135,15 @@ public class Local implements Parcelable {
         this.descripcio = descripcio;
     }
 
-    public String getComentaris() {  return comentaris;    }
+    public  List<String> getComentaris() {  return comentaris;    }
 
-    public void setComentaris(String comentaris) {   this.comentaris = comentaris;    }
+    public void setComentaris(List<String> comentaris) {   this.comentaris = comentaris;    }
 
     @Override
     public String toString() {
         return "Local{" +
-                "local='" + local + '\'' +
+                "id=" + id +
+                ", local='" + local + '\'' +
                 ", carrer='" + carrer + '\'' +
                 ", preu='" + preu + '\'' +
                 ", Icons=" + Icons +
@@ -140,7 +151,8 @@ public class Local implements Parcelable {
                 ", horari='" + horari + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
-                ", comentaris=" + comentaris+
+                ", descripcio='" + descripcio + '\'' +
+                ", comentaris='" + comentaris + '\'' +
                 '}';
     }
 
@@ -151,6 +163,7 @@ public class Local implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
         dest.writeString(local);
         dest.writeString(carrer);
         dest.writeString(preu);
@@ -160,6 +173,8 @@ public class Local implements Parcelable {
         dest.writeDouble(lat);
         dest.writeDouble(lon);
         dest.writeString(descripcio);
+        dest.writeStringList(comentaris);
+
 
     }
 }

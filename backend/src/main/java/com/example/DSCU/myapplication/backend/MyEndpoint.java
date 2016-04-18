@@ -59,7 +59,7 @@ public class MyEndpoint {
         }
     }
 
-    @ApiMethod(name = "updateLocal2")
+    @ApiMethod(name = "updateLocal")
     public void updateLocal(LocalBean localBean) {
         DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
         Key localBeanParentKey = KeyFactory.createKey("localBeanParent", "localf");

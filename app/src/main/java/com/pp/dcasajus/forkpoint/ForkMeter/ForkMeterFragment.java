@@ -11,12 +11,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.example.dscu.myapplication.backend.localApi.LocalApi;
 import com.example.dscu.myapplication.backend.localApi.model.LocalBean;
@@ -25,7 +23,6 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.pp.dcasajus.forkpoint.LocalDetall.Local;
 import com.pp.dcasajus.forkpoint.LocalDetall.LocalDetall;
 import com.pp.dcasajus.forkpoint.R;
-import com.pp.dcasajus.forkpoint.Serveis.LocationSave;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +38,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     String[] preu;
     String[] horari;
     String descripcio;
+    List<String> com;
     double lat;
     double lon;
     private LocalApi myApiService = null;
@@ -89,9 +87,10 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
                     map.put("local", taskBean.getLocal());
                     map.put("preu", taskBean.getPreu());
                     map.put("carrer", taskBean.getCarrer());
-                    map.put("comentaris", String.valueOf(taskBean.getComentaris()));
-
-
+                    map.put("horari", taskBean.getHorari());
+                    map.put("descripcio", taskBean.getDescripcio());
+                    //map.put("comentaris", taskBean.getComentaris());
+                    com =  taskBean.getComentaris();
                    System.out.println("COMENTARIS prova" + String.valueOf(taskBean.getComentaris()));
                     System.out.println("LAT " + taskBean.getLat()+ "LOT "+taskBean.getLon() );
 
@@ -134,7 +133,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         System.out.println("Position "+position);
-        Local local = new Local(mylist.get(position).get("local"),mylist.get(position).get("carrer"),mylist.get(position).get("preu"),Icons.getResourceId(position, -1),0,mylist.get(position).get("horari"),0,0,mylist.get(position).get("descripcio"),mylist.get(position).get("comentaris"));
+        Local local = new Local(Long.parseLong(mylist.get(position).get("id")),mylist.get(position).get("local"),mylist.get(position).get("carrer"),mylist.get(position).get("preu"),Icons.getResourceId(position, -1),0,mylist.get(position).get("horari"),0,0,mylist.get(position).get("descripcio"),com);
         Intent intent = new Intent(getActivity().getApplicationContext(), LocalDetall.class);
         intent.putExtra("localSelected", local);
         startActivity(intent);
