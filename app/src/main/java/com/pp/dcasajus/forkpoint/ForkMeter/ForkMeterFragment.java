@@ -38,7 +38,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     String[] preu;
     String[] horari;
     String descripcio;
-    List<String> com;
+   // List<String> com;
     double lat;
     double lon;
     private LocalApi myApiService = null;
@@ -46,6 +46,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     private List<RowItem> rowItems;
     List<LocalBean> remoteTasks;
     ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
+    ArrayList<HashMap<String, List<String>>> mylist2 = new ArrayList<>();
 
     public ForkMeterFragment() {
         // Required empty public constructor
@@ -83,18 +84,20 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
                 remoteTasks = myApiService.getLocal().execute().getItems();
                 for (LocalBean taskBean : remoteTasks) {
                     HashMap<String, String> map = new HashMap<String, String>();
+                    HashMap<String, List<String>> map2 = new HashMap<String, List<String>>();
                     map.put("id", String.valueOf(taskBean.getId()));
                     map.put("local", taskBean.getLocal());
                     map.put("preu", taskBean.getPreu());
                     map.put("carrer", taskBean.getCarrer());
                     map.put("horari", taskBean.getHorari());
                     map.put("descripcio", taskBean.getDescripcio());
-                    //map.put("comentaris", taskBean.getComentaris());
-                    com =  taskBean.getComentaris();
-                   System.out.println("COMENTARIS prova" + String.valueOf(taskBean.getComentaris()));
+                    map2.put("comentaris", taskBean.getComentaris());
+                    //com =  taskBean.getComentaris();
+                    System.out.println("COMENTARIS prova" + String.valueOf(taskBean.getComentaris()));
                     System.out.println("LAT " + taskBean.getLat()+ "LOT "+taskBean.getLon() );
 
                     mylist.add(map);
+                    mylist2.add(map2);
 
                 }
                 return mylist;
@@ -133,7 +136,7 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
         System.out.println("Position "+position);
-        Local local = new Local(Long.parseLong(mylist.get(position).get("id")),mylist.get(position).get("local"),mylist.get(position).get("carrer"),mylist.get(position).get("preu"),Icons.getResourceId(position, -1),0,mylist.get(position).get("horari"),0,0,mylist.get(position).get("descripcio"),com);
+        Local local = new Local(Long.parseLong(mylist.get(position).get("id")),mylist.get(position).get("local"),mylist.get(position).get("carrer"),mylist.get(position).get("preu"),Icons.getResourceId(position, -1),0,mylist.get(position).get("horari"),0,0,mylist.get(position).get("descripcio"),mylist2.get(position).get("comentaris"));
         Intent intent = new Intent(getActivity().getApplicationContext(), LocalDetall.class);
         intent.putExtra("localSelected", local);
         startActivity(intent);
