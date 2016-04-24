@@ -23,11 +23,14 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.example.denisplata.myapplication.gcmsenderserver.registration.Registration;
 import com.google.android.gms.gcm.GcmPubSub;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
+import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.pp.dcasajus.forkpoint.R;
 
 import java.io.IOException;
@@ -88,11 +91,17 @@ public class RegistrationIntentService extends IntentService {
      *
      * @param token The new token.
      */
-    private void sendRegistrationToServer(String token) {
-        /*Registration.Builder builder = new Registration.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
-                .setRootUrl();
-        Registration registration = builder.build();
-        registration.register(token).execute();*/
+    private void sendRegistrationToServer(String token) throws IOException {
+        Registration.Builder builder = new Registration.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
+                .setRootUrl("http://forkpoint-1265.appspot.com/_ah/api/")
+                .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                    @Override
+                    public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
+                        request.setDisableGZipContent(true);
+                    }
+                });
+        Registration regService = builder.build();
+        regService.register(token).execute();
     }
 
     /**
