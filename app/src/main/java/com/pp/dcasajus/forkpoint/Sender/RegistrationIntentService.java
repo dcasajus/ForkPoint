@@ -93,7 +93,7 @@ public class RegistrationIntentService extends IntentService {
      */
     private void sendRegistrationToServer(String token) throws IOException {
         Registration.Builder builder = new Registration.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
-                .setRootUrl("http://forkpoint-1265.appspot.com/_ah/api/")
+                .setRootUrl("https://forkpoint-1265.appspot.com/_ah/api/")
                 .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                     @Override
                     public void initialize(AbstractGoogleClientRequest<?> request) throws IOException {
