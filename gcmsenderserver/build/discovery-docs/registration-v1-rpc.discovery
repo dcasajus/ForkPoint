@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"H01Z-1ikbwOw463Un2bFZHenx1g/Ihp2Gb4tu_HLPRoV8iDVYY8jJyk\"",
+ "etag": "\"H01Z-1ikbwOw463Un2bFZHenx1g/nLFgl7diRSMy8x8mZvYj4PICdt4\"",
  "discoveryVersion": "v1",
  "id": "registration:v1",
  "name": "registration",
@@ -13,8 +13,8 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rpc",
- "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
- "rpcUrl": "https://myApplicationId.appspot.com/_ah/api/rpc",
+ "rootUrl": "https://forkpoint-1265.appspot.com/_ah/api/",
+ "rpcUrl": "https://forkpoint-1265.appspot.com/_ah/api/rpc",
  "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
