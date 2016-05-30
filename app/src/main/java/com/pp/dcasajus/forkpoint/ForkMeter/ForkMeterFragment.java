@@ -24,7 +24,16 @@ import com.pp.dcasajus.forkpoint.LocalDetall.Local;
 import com.pp.dcasajus.forkpoint.LocalDetall.LocalDetall;
 import com.pp.dcasajus.forkpoint.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,7 +85,45 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
 
         @Override
         protected ArrayList<HashMap<String, String>> doInBackground(String... params) {
-            if(myApiService == null) {  // Only do this once
+
+
+            try {
+                URL url = new URL("http://forkpoint-server.herokuapp.com/getLocals");
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.setRequestProperty("Content-Type", "application/json");
+                con.setRequestProperty("Accept", "application/json");
+
+                int HttpResult = con.getResponseCode();
+                if (HttpResult == 200) {
+                    InputStream in = new BufferedInputStream(con.getInputStream());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    JSONArray aardata = new JSONArray(reader);
+                    JSONObject obj = aardata.getJSONObject(0);
+                    String local = obj.getString("local");
+                    System.out.println(obj.toString());
+                    System.out.println(local);
+
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    HashMap<String, List<String>> map2 = new HashMap<String, List<String>>();
+                    map.put("id",  obj.getString("id"));
+                    map.put("local",  obj.getString("local"));
+                    map.put("preu",  obj.getString("preu"));
+                    map.put("carrer",  obj.getString("carrer"));
+                    map.put("horari",  obj.getString("horari"));
+                    map.put("descripcio",  obj.getString("descripcio"));
+                    map2.put("comentaris", (List<String>) obj.getJSONArray("comentaris"));
+                    //com =  taskBean.getComentaris();
+                    mylist.add(map);
+                    mylist2.add(map2);
+                    return mylist;
+                } else {
+                    return null;
+                }
+            } catch(Exception e) {
+                return null;
+            }
+            /*if(myApiService == null) {  // Only do this once
                 LocalApi.Builder builder = new LocalApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null);
                 myApiService = builder.build();
             }
@@ -104,7 +151,8 @@ public class ForkMeterFragment extends ListFragment implements AdapterView.OnIte
             } catch (IOException e) {
                 Log.e("log_tag", "Error parsing data "+e.toString());
             }
-            return null;
+            return null;*/
+
         }
 
         @Override
